@@ -1,0 +1,8 @@
+<sly data-sly-use.breadCrumb="org.rajesh.core.models.BreadcrumbModel">
+    <sly data-sly-test="${!breadCrumb.hideCurrentPage}">
+        <nav data-sly-list="${breadCrumb.breadcrumbList}">
+            <a href="${item.pagePath}">${item.pageTitle}</a>
+            <i class="some-icon-class-to-show-forward-slash"></i>
+        </nav>
+    </sly>
+</sly>
