@@ -1,7 +1,6 @@
 <p data-sly-test.editmode="${wcmmode.edit || wcmmode.design}">${component.title} - ${'Please configure this component.' @ i18n}</p>
 <sly data-sly-use.breadCrumb="org.rajesh.core.models.BreadcrumbModel">
     <sly data-sly-test="${!breadCrumb.hideCurrentPage}">
-        <!--<sly data-sly-list.bc="${breadCrumb.breadcrumbList}"></sly>-->
         <nav data-sly-list.bc="${breadCrumb.breadcrumbList}">
             <a href="${bc.pagePath}">${bc.pageTitle}</a>
             <sly data-sly-test="${breadCrumb.breadcrumbList.size > 1 && !bcList.last}">
