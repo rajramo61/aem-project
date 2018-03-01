@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
     <filter root="/conf/aem-project"/>
-    <filter root="/content/aem-project"/>
+    <!--<filter root="/content/aem-project"/>-->
     <filter root="/content/dam/aem-project"/>
 </workspaceFilter>

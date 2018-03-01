@@ -12,8 +12,6 @@
                 type="nav"/>
         <items jcr:primaryType="nt:unstructured">
 
-            <!-- Promo Tab fields -->
-
             <breadcrumb
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Promo"

@@ -19,6 +19,7 @@ public class BreadcrumbModel {
     private static final String HIDE_CURRENT_PAGE = "hideCurrentPage";
     private static final String RELATIVE_PARENT = "relativeParent";
     private static final String FALSE = "false";
+    private static final String HTML_EXTN = ".html";
 
     @Inject
     private Page currentPage;
@@ -46,11 +47,13 @@ public class BreadcrumbModel {
         breadcrumbList = new ArrayList<>();
         for(int level = 1; level < difference; level++){
             Page parentPage = currentPage.getParent(difference - level);
-            String title = StringUtils.isEmpty(parentPage.getNavigationTitle())
-                    ? parentPage.getNavigationTitle() : parentPage.getTitle();
+            String title = StringUtils.isNotEmpty(parentPage.getNavigationTitle())
+                    ? parentPage.getNavigationTitle() :
+                    StringUtils.isNotEmpty(parentPage.getTitle())
+                            ? parentPage.getTitle() : parentPage.getName();
             final BreadcrumbPojo breadcrumbPojo = new BreadcrumbPojo();
             breadcrumbPojo.setPageTitle(title);
-            breadcrumbPojo.setPagePath(parentPage.getPath());
+            breadcrumbPojo.setPagePath(parentPage.getPath() + HTML_EXTN);
             breadcrumbPojo.setHidePage(parentPage.getProperties().get(HIDE_CURRENT_PAGE, FALSE));
             breadcrumbList.add(breadcrumbPojo);
         }
