@@ -45,7 +45,7 @@ public class BreadcrumbModel {
         difference = difference > 0 ? difference : 1;
         breadcrumbList = new ArrayList<>();
         for(int level = 1; level < difference; level++){
-            Page parentPage = currentPage.getParent(difference - 1);
+            Page parentPage = currentPage.getParent(difference - level);
             String title = StringUtils.isEmpty(parentPage.getNavigationTitle())
                     ? parentPage.getNavigationTitle() : parentPage.getTitle();
             final BreadcrumbPojo breadcrumbPojo = new BreadcrumbPojo();
