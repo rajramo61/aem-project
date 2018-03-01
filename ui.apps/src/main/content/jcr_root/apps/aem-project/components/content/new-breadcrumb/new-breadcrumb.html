@@ -1,8 +1,9 @@
+<p data-sly-test.editmode="${wcmmode.edit}">${component.title} - ${'Please configure this component.' @ i18n}</p>
 <sly data-sly-use.breadCrumb="org.rajesh.core.models.BreadcrumbModel">
     <sly data-sly-test="${!breadCrumb.hideCurrentPage}">
         <nav data-sly-list="${breadCrumb.breadcrumbList}">
             <a href="${item.pagePath}">${item.pageTitle}</a>
-            <i class="some-icon-class-to-show-forward-slash"></i>
+            <i class="some-icon-class-to-show-forward-slash">|</i>
         </nav>
     </sly>
 </sly>
