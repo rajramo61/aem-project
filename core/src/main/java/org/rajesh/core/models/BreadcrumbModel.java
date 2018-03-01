@@ -47,16 +47,20 @@ public class BreadcrumbModel {
         breadcrumbList = new ArrayList<>();
         for(int level = 1; level < difference; level++){
             Page parentPage = currentPage.getParent(difference - level);
-            String title = StringUtils.isNotEmpty(parentPage.getNavigationTitle())
-                    ? parentPage.getNavigationTitle() :
-                    StringUtils.isNotEmpty(parentPage.getTitle())
-                            ? parentPage.getTitle() : parentPage.getName();
+            String title = getTitle(parentPage);
             final BreadcrumbPojo breadcrumbPojo = new BreadcrumbPojo();
             breadcrumbPojo.setPageTitle(title);
             breadcrumbPojo.setPagePath(parentPage.getPath() + HTML_EXTN);
             breadcrumbPojo.setHidePage(parentPage.getProperties().get(HIDE_CURRENT_PAGE, FALSE));
             breadcrumbList.add(breadcrumbPojo);
         }
+    }
+
+    private String getTitle(Page parentPage) {
+        return StringUtils.isNotEmpty(parentPage.getNavigationTitle())
+                ? parentPage.getNavigationTitle() :
+                StringUtils.isNotEmpty(parentPage.getTitle())
+                        ? parentPage.getTitle() : parentPage.getName();
     }
 
     public List<BreadcrumbPojo> getBreadcrumbList(){
